@@ -1,4 +1,4 @@
-import 'package:etourist/app/modules/register/register_page.dart';
+import 'package:etourist/app/modules/register/login_page.dart';
 import 'package:etourist/app/modules/splash_screen/page_1.dart';
 import 'package:etourist/app/modules/splash_screen/page_3.dart';
 import 'package:flutter/material.dart';
@@ -68,7 +68,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 GestureDetector(
                   onTap: () {
                     _isLastPage.value
-                        ? Get.to(const Register())
+                        ? Get.to(const Login())
                         : _controller.nextPage(
                             duration: const Duration(milliseconds: 500),
                             curve: Curves.easeIn,

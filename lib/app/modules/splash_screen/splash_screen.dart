@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'package:etourist/app/modules/register/register_page.dart';
 import 'package:etourist/app/modules/splash_screen/onboarding_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -25,14 +24,14 @@ class _SplashScreenState extends State<SplashScreen> {
       Get.off(() => const OnboardingScreen());
       await prefs.setBool('first_time', false);
     } else {
-      Get.off(() => const Register());
+      Get.off(() => const OnboardingScreen());
     }
   }
 
   @override
   void initState() {
     super.initState();
-    Timer(const Duration(milliseconds: 500), () {
+    Timer(const Duration(milliseconds: 3000), () {
       //go to onboarding screen if first time, else go to register screen
       checkFirstTime();
     });
@@ -40,22 +39,39 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [
-              Color(0xFF00DBB7),
-              Color(0xFF081715),
-            ],
-          ),
+    return Scaffold(
+      body: Container(
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
+        clipBehavior: Clip.antiAlias,
+        decoration: const BoxDecoration(color: Color(0xFFF1F5F9)),
+        child: Stack(
+          children: [
+            Container(
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.height,
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage("assets/images/image_1.png"),
+                  fit: BoxFit.fill,
+                ),
+              ),
+            ),
+            Center(
+              child: Container(
+                width: 100,
+                height: 75,
+                decoration: const BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage("assets/icons/logo.png"),
+                    fit: BoxFit.fill,
+                  ),
+                ),
+              ),
+            )
+          ],
         ),
-        // other properties of the container
-        child: Center(
-          //logo here
-          child: Image.asset(
-              'assets/images/logo.png'), // replace with your logo path
-        ));
+      ),
+    );
   }
 }

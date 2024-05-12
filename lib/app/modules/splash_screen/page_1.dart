@@ -20,7 +20,7 @@ class Page1 extends StatelessWidget {
             ),
           ),
           child: Image.asset(
-            'assets/images/img1.png',
+            'assets/images/image_1.png',
             width: double.infinity,
             height: double.infinity,
             fit: BoxFit.cover,

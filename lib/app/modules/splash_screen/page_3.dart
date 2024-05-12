@@ -20,7 +20,7 @@ class Page3 extends StatelessWidget {
             ),
           ),
           child: Image.asset(
-            'assets/images/img3.png',
+            'assets/images/image_1.png',
             width: double.infinity,
             height: double.infinity,
             fit: BoxFit.cover,
@@ -34,7 +34,7 @@ class Page3 extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Image.asset(
-                'assets/images/home2.png',
+                'assets/images/logo.png',
               ),
               const SizedBox(
                 height: 10,
