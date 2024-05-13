@@ -6,16 +6,26 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 // ignore: must_be_immutable
-class RegisterWidget extends StatelessWidget {
+class RegisterWidget extends StatefulWidget {
   RegisterWidget({super.key});
 
+  static final _formKey = GlobalKey<FormState>();
+
+  @override
+  State<RegisterWidget> createState() => _RegisterWidgetState();
+}
+
+class _RegisterWidgetState extends State<RegisterWidget> {
   final TextEditingController? passwordController = TextEditingController();
+
   final TextEditingController? emailController = TextEditingController();
+
   final TextEditingController? surnameController = TextEditingController();
+
   final TextEditingController? firstNameController = TextEditingController();
+
   final TextEditingController? confirmPasswordController =
       TextEditingController();
-  static final _formKey = GlobalKey<FormState>();
 
   bool isValidPasswordLength(String value, {required int length}) {
     return value.length >= length;
@@ -26,7 +36,7 @@ class RegisterWidget extends StatelessWidget {
     return SizedBox(
       width: MediaQuery.of(context).size.width,
       child: Form(
-        key: _formKey,
+        key: RegisterWidget._formKey,
         child: Column(
           children: [
             const Text(
@@ -165,7 +175,7 @@ class RegisterWidget extends StatelessWidget {
             ActionButton(
                 action: "S\'inscrire",
                 onPressed: () {
-                  if (_formKey.currentState!.validate()) {
+                  if (RegisterWidget._formKey.currentState!.validate()) {
                     print('valid');
                     Get.to(() => Principal());
                   }
