@@ -15,7 +15,7 @@ class RegisterWidget extends StatelessWidget {
   final TextEditingController? firstNameController = TextEditingController();
   final TextEditingController? confirmPasswordController =
       TextEditingController();
-  final _formKey = GlobalKey<FormState>();
+  static final _formKey = GlobalKey<FormState>();
 
   bool isValidPasswordLength(String value, {required int length}) {
     return value.length >= length;

@@ -1,3 +1,4 @@
+import 'package:etourist/app/data/controllers/home_page_controller.dart';
 import 'package:etourist/app/data/controllers/login_controller.dart';
 import 'package:etourist/app/data/controllers/principal_controller.dart';
 import 'package:etourist/app/data/services/storage/storage_services.dart';
@@ -11,6 +12,7 @@ void main() async {
   await Get.putAsync(() => StorageService().init());
   Get.put(LoginController());
   Get.put(PrincipalController());
+  Get.put(HomePageController());
   WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }

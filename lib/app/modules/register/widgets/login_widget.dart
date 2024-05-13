@@ -12,7 +12,7 @@ class LoginWidget extends StatelessWidget {
   final TextEditingController? passwordController = TextEditingController();
   final TextEditingController? emailController = TextEditingController();
 
-  final _formKey = GlobalKey<FormState>();
+  static final _formKey = GlobalKey<FormState>();
 
   bool isValidPasswordLength(String value, {required int length}) {
     return value.length >= length;
