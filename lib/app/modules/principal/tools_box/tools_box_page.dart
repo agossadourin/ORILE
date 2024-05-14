@@ -1,5 +1,8 @@
+import 'package:etourist/app/modules/principal/tools_box/learn_page.dart';
 import 'package:etourist/app/modules/principal/tools_box/widgets/tool.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:get/get.dart';
 
 class ToolsBox extends StatelessWidget {
   const ToolsBox({super.key});
@@ -48,9 +51,14 @@ class ToolsBox extends StatelessWidget {
               spacing: 20,
               runSpacing: 20,
               children: [
-                Tool(
-                  image: 'assets/images/logo.png',
-                  title: 'Apprendre',
+                GestureDetector(
+                  onTap: () {
+                    Get.to(() => LearnPage());
+                  },
+                  child: Tool(
+                    image: 'assets/images/logo.png',
+                    title: 'Apprendre',
+                  ),
                 ),
                 Tool(
                   image: 'assets/images/logo.png',
