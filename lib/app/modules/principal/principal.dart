@@ -90,7 +90,7 @@ class Principal extends StatelessWidget {
                       },
                       children: [
                         Home(),
-                        const ShortsPage(),
+                        VideoScreen(),
                         const Center(
                           child: Text('rechercher'),
                         ),
