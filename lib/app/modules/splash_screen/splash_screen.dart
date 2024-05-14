@@ -59,7 +59,7 @@ class _SplashScreenState extends State<SplashScreen> {
             ),
             Center(
               child: Container(
-                width: 200,
+                width: 250,
                 height: 75,
                 decoration: const BoxDecoration(
                   image: DecorationImage(
