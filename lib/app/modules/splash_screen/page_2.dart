@@ -5,82 +5,71 @@ class Page2 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
+    return Column(
       children: [
         //fill all the screen with the image
         Container(
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-              colors: [
-                Color(0xFF00DBB7),
-                Color(0xFF081715),
-              ],
-            ),
-          ),
-          child: Image.asset(
-            'assets/images/image_1.png',
-            width: double.infinity,
-            height: double.infinity,
-            fit: BoxFit.cover,
-          ),
-        ),
-
-        Center(
-            child: Container(
-          padding: const EdgeInsets.all(30),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+          height: MediaQuery.of(context).size.height * 0.5,
+          child: Stack(
             children: [
-              Image.asset(
-                'assets/images/logo.png',
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              const Text(
-                'Payez le loyer à votre rythme',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontFamily: 'Inter',
-                  fontSize: 15,
-                  fontStyle: FontStyle.normal,
-                  fontWeight: FontWeight.w700,
-                  color: Colors.white,
-                ),
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              const Text(
-                'Locapay vous permet de choisir votre fréquence de paiement',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontFamily: 'Inter',
-                  fontSize: 13,
-                  fontStyle: FontStyle.normal,
-                  fontWeight: FontWeight.w500,
-                  color: Colors.white,
-                ),
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              const Text(
-                '(jour / semaine / mois)',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontFamily: 'Inter',
-                  fontSize: 13,
-                  fontStyle: FontStyle.normal,
-                  fontWeight: FontWeight.w300,
-                  color: Colors.white,
+              Container(
+                width: MediaQuery.of(context).size.width,
+                height: MediaQuery.of(context).size.height * 0.5,
+                decoration: const BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage('assets/images/onboarding_2.png'),
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
             ],
           ),
-        ))
+        ),
+
+        Center(
+          child: Container(
+            padding: const EdgeInsets.all(20),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const SizedBox(
+                  height: 20,
+                ),
+                const Text(
+                  "Des Récits\n Qui Inspirent l'Aventure",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Color(0xFF1B1E28),
+                    fontSize: 23,
+                    fontFamily: 'Montserrat',
+                    fontWeight: FontWeight.w900,
+                  ),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                Center(
+                  child: Image.asset('assets/icons/decorator.png'),
+                ),
+                const SizedBox(
+                  height: 5,
+                ),
+                SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.85,
+                    child: const Text(
+                      "Plongez dans l'histoire et la culture avec notre application immersive de découverte touristique.",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: Color(0xFF7C838D),
+                        fontSize: 16,
+                        fontFamily: 'Montserrat',
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ))
+              ],
+            ),
+          ),
+        )
       ],
     );
   }

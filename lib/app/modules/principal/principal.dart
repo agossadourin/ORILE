@@ -1,5 +1,7 @@
 import 'package:etourist/app/data/controllers/principal_controller.dart';
 import 'package:etourist/app/modules/principal/home/home.dart';
+import 'package:etourist/app/modules/principal/shorts/shorts_page.dart';
+import 'package:etourist/app/modules/principal/shorts/shorts_page2.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -88,9 +90,7 @@ class Principal extends StatelessWidget {
                       },
                       children: [
                         Home(),
-                        const Center(
-                          child: Text('Apprendre'),
-                        ),
+                        const ShortsPage(),
                         const Center(
                           child: Text('rechercher'),
                         ),

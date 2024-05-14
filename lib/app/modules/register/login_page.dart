@@ -10,26 +10,26 @@ class Login extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Container(
-          width: MediaQuery.of(context).size.width,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              SizedBox(
-                height: 100,
-              ),
-              SizedBox(
-                width: 100,
-                height: 100,
-                child: Image.asset('assets/images/logo.png'),
-              ),
-              Obx(
-                () => Get.find<LoginController>().isLogin.value == false
-                    ? RegisterWidget()
-                    : LoginWidget(),
-              )
-            ],
+      backgroundColor: Colors.white,
+      body: Center(
+        child: SingleChildScrollView(
+          child: SizedBox(
+            width: MediaQuery.of(context).size.width,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                SizedBox(
+                  width: 100,
+                  height: 100,
+                  child: Image.asset('assets/images/logo.png'),
+                ),
+                Obx(
+                  () => Get.find<LoginController>().isLogin.value == false
+                      ? RegisterWidget()
+                      : LoginWidget(),
+                )
+              ],
+            ),
           ),
         ),
       ),

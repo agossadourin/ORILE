@@ -1,6 +1,7 @@
 import 'package:etourist/app/modules/register/login_page.dart';
 import 'package:etourist/app/modules/splash_screen/page_1.dart';
 import 'package:etourist/app/modules/splash_screen/page_3.dart';
+import 'package:etourist/app/widgets/action_button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -22,71 +23,80 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
+      body: Column(
         children: [
-          PageView(
-            controller: _controller,
-            onPageChanged: (index) {
-              if (index == 2) {
-                _isLastPage.value = true;
-              } else {
-                _isLastPage.value = false;
-              }
-            },
-            children: const [
-              Page1(),
-              Page2(),
-              Page3(),
+          Stack(
+            children: [
+              Container(
+                height: MediaQuery.of(context).size.height * 0.85,
+                child: PageView(
+                  controller: _controller,
+                  onPageChanged: (index) {
+                    if (index == 2) {
+                      _isLastPage.value = true;
+                    } else {
+                      _isLastPage.value = false;
+                    }
+                  },
+                  children: [
+                    Page1(),
+                    Page2(),
+                    Page3(),
+                  ],
+                ),
+              ),
+              Positioned(
+                  top: 50,
+                  right: 20,
+                  child: GestureDetector(
+                    onTap: () {
+                      _controller.jumpToPage(2);
+                    },
+                    child: const SizedBox(
+                      width: 60,
+                      height: 30,
+                      child: Text(
+                        'Skip',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color: Color(0xFFCAEAFF),
+                          fontSize: 18,
+                          fontFamily: 'Montserrat',
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                    ),
+                  )),
             ],
           ),
-          Container(
-            alignment: const Alignment(0, 0.75),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                GestureDetector(
-                  onTap: () {
-                    _controller.jumpToPage(2);
-                  },
-                  child: const Text(
-                    'Passer',
-                    style: TextStyle(color: Colors.white),
-                  ),
-                ),
-                SmoothPageIndicator(
-                  controller: _controller,
-                  count: 3,
-                  effect: const ExpandingDotsEffect(
-                    dotColor: Colors.grey,
-                    activeDotColor: Colors.white,
-                    dotHeight: 12,
-                    dotWidth: 12,
-                    expansionFactor: 3,
-                    spacing: 8,
-                  ),
-                ),
-                GestureDetector(
-                  onTap: () {
-                    _isLastPage.value
-                        ? Get.to(const Login())
-                        : _controller.nextPage(
-                            duration: const Duration(milliseconds: 500),
-                            curve: Curves.easeIn,
-                          );
-                  },
-                  child: Obx(() => _isLastPage.value
-                      ? const Text(
-                          'Commencer',
-                          style: TextStyle(color: Colors.white),
-                        )
-                      : const Text(
-                          'suivant',
-                          style: TextStyle(color: Colors.white),
-                        )),
-                )
-              ],
+          const SizedBox(
+            height: 10,
+          ),
+          SmoothPageIndicator(
+            controller: _controller,
+            count: 3,
+            effect: const ExpandingDotsEffect(
+              dotColor: Color(0xFFCAEAFF),
+              activeDotColor: Color(0xFF0B4D00),
+              dotHeight: 12,
+              dotWidth: 12,
+              expansionFactor: 3,
+              spacing: 8,
             ),
-          )
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+          Obx(() => ActionButton(
+              action: _isLastPage.value == false ? 'Suivant' : 'Commencer',
+              onPressed: () {
+                _isLastPage.value
+                    ? Get.to(const Login())
+                    : _controller.nextPage(
+                        duration: const Duration(milliseconds: 500),
+                        curve: Curves.easeIn,
+                      );
+              }))
         ],
       ),
     );

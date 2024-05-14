@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:etourist/app/core/utils/extensions.dart';
 
 //stateless widget
-class ActionButton extends StatelessWidget {
+class SecondActionButton extends StatelessWidget {
   final String? action;
   final VoidCallback? onPressed;
   //constructor
-  const ActionButton({Key? key, required this.action, required this.onPressed})
+  const SecondActionButton(
+      {Key? key, required this.action, required this.onPressed})
       : super(key: key);
 
   @override
@@ -24,13 +25,13 @@ class ActionButton extends StatelessWidget {
       child: ElevatedButton(
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(
-            backgroundColor: const Color(0xFF0B4D00),
+            backgroundColor: const Color(0x0D000000),
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10))),
         child: Text(
           action!,
           style: TextStyle(
-              color: Colors.white,
+              color: Color(0xFF0B4D00),
               fontFamily: 'Imprima',
               fontSize: 2.0.hp,
               fontWeight: FontWeight.w400),

@@ -18,9 +18,9 @@ class Home extends StatelessWidget {
       language: 'Français',
       distance: 2.5,
       images: [
+        'assets/images/image_1.png',
         'assets/images/place_1.png',
-        'assets/images/image_2.png',
-        'assets/images/image_3.png',
+        'assets/images/image_1.png',
       ],
     ),
     Place(
@@ -31,8 +31,8 @@ class Home extends StatelessWidget {
       distance: 2.5,
       images: [
         'assets/images/image_1.png',
-        'assets/images/image_2.png',
-        'assets/images/image_3.png',
+        'assets/images/place_1.png',
+        'assets/images/image_1.png',
       ],
     ),
     Place(
@@ -43,8 +43,8 @@ class Home extends StatelessWidget {
       distance: 2.5,
       images: [
         'assets/images/image_1.png',
-        'assets/images/image_2.png',
-        'assets/images/image_3.png',
+        'assets/images/place_1.png',
+        'assets/images/image_1.png',
       ],
     ),
     Place(
@@ -55,8 +55,8 @@ class Home extends StatelessWidget {
       distance: 2.5,
       images: [
         'assets/images/image_1.png',
-        'assets/images/image_2.png',
-        'assets/images/image_3.png',
+        'assets/images/place_1.png',
+        'assets/images/image_1.png',
       ],
     ),
   ];

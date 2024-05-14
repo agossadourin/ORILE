@@ -47,6 +47,7 @@ class _LoginWidgetState extends State<LoginWidget> {
               height: 20,
             ),
             MyFormFieldBold(
+                leftIcon: 'email',
                 controller: emailController,
                 testInputType: TextInputType.visiblePassword,
                 hintText: "email",

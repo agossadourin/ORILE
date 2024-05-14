@@ -33,30 +33,28 @@ class MyFormFieldBold extends StatelessWidget {
       margin: const EdgeInsets.only(top: 5, bottom: 5),
       padding: const EdgeInsets.only(left: 15, bottom: 5),
       decoration: BoxDecoration(
-        border: Border.all(
-          color: Colors.black,
-          width: 1.0,
-        ),
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(7),
+        color: Color.fromARGB(255, 215, 215, 240),
+        borderRadius: BorderRadius.circular(10),
       ),
       child: Stack(
         children: [
           if (leftIcon != null)
             Positioned(
-              left: 0,
-              top: 1.125.hp,
-              child: Container(
-                width: 20,
-                height: 20,
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage(leftIcon!),
-                    fit: BoxFit.fill,
+                left: 0,
+                top: 1.125.hp,
+                child: Container(
+                  width: 20,
+                  height: 20,
+                  child: Icon(
+                    leftIcon == 'person'
+                        ? Icons.person
+                        : leftIcon == 'email'
+                            ? Icons.mail
+                            : Icons.lock,
+                    color: Colors.black,
+                    size: 20,
                   ),
-                ),
-              ),
-            ),
+                )),
           // mini vertical bar
           if (hasSepBar!)
             Positioned(
@@ -86,22 +84,23 @@ class MyFormFieldBold extends StatelessWidget {
           ),
           if (rightIcon != null)
             Positioned(
-              left: 0.65 * width!,
-              top: 1.5.hp,
-              child: GestureDetector(
-                onTap: onTap,
-                child: Container(
-                  width: 18,
-                  height: 18,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage(rightIcon!),
-                      fit: BoxFit.fill,
+                left: 0.80 * width!,
+                top: 1.5.hp,
+                child: GestureDetector(
+                  onTap: onTap,
+                  child: Container(
+                    width: 18,
+                    height: 18,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage(rightIcon!),
+                        fit: BoxFit.fill,
+                      ),
                     ),
+                    child: Icon(Icons.remove_red_eye,
+                        color: Colors.black, size: 18),
                   ),
-                ),
-              ),
-            ),
+                )),
         ],
       ),
     );

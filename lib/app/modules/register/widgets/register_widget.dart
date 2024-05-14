@@ -54,6 +54,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
               height: 20,
             ),
             MyFormFieldBold(
+                leftIcon: 'email',
                 controller: surnameController,
                 testInputType: TextInputType.visiblePassword,
                 hintText: "Nom",
@@ -69,9 +70,10 @@ class _RegisterWidgetState extends State<RegisterWidget> {
               height: 20,
             ),
             MyFormFieldBold(
+                leftIcon: 'email',
                 controller: firstNameController,
                 testInputType: TextInputType.visiblePassword,
-                hintText: "Prénoms",
+                hintText: "Email",
                 validator: (value) {
                   if (value!.isEmpty) {
                     return 'Please enter a valid data';
@@ -88,7 +90,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                   leftIcon: 'assets/icons/lock.png',
                   rightIcon:
                       Get.find<LoginController>().hidePassword.value == false
-                          ? 'assets/icons/show.png'
+                          ? 'assets/icons/eye.png'
                           : 'assets/icons/hide.png',
                   onTap: () {
                     if (Get.find<LoginController>().hidePassword.value ==
@@ -117,7 +119,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                   leftIcon: 'assets/icons/lock.png',
                   rightIcon:
                       Get.find<LoginController>().hidePassword2.value == false
-                          ? 'assets/icons/show.png'
+                          ? 'assets/icons/eye.png'
                           : 'assets/icons/hide.png',
                   onTap: () {
                     if (Get.find<LoginController>().hidePassword2.value ==

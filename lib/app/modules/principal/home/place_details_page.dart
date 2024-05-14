@@ -1,4 +1,6 @@
 import 'package:etourist/app/modules/principal/home/widgets/key_info_item.dart';
+import 'package:etourist/app/widgets/action_button.dart';
+import 'package:etourist/app/widgets/action_button_2.dart';
 import 'package:flutter/material.dart';
 
 import '../../../data/models/place.dart';
@@ -15,15 +17,17 @@ class PlaceDetails extends StatelessWidget {
           children: [
             Container(
               height: MediaQuery.of(context).size.height * 0.5,
-              decoration: const ShapeDecoration(
-                image: DecorationImage(
-                  image: AssetImage("assets/images/place_1.png"),
-                  fit: BoxFit.fitHeight,
-                ),
-                shape: RoundedRectangleBorder(),
-              ),
               child: Stack(
                 children: [
+                  PageView.builder(
+                    itemCount: place!.images.length,
+                    itemBuilder: (context, index) {
+                      return Image.asset(
+                        place!.images[index],
+                        fit: BoxFit.fitHeight,
+                      );
+                    },
+                  ),
                   Positioned(
                     top: 30,
                     left: 10,
@@ -152,7 +156,32 @@ class PlaceDetails extends StatelessWidget {
                     subtitle: "Fon",
                     icon: "assets/icons/Icontrip.png"),
               ],
-            )
+            ),
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.02,
+            ),
+            SizedBox(
+              width: MediaQuery.of(context).size.width * 0.9,
+              child: const Text(
+                'Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+                style: TextStyle(
+                  color: Color(0xFF39404B),
+                  fontSize: 12,
+                  fontFamily: 'Montserrat',
+                  fontWeight: FontWeight.w300,
+                  height: 2,
+                ),
+              ),
+            ),
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.02,
+            ),
+            SecondActionButton(
+                action: "Apprendre quelques mots", onPressed: () {}),
+            ActionButton(action: "Visiter", onPressed: () {}),
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.02,
+            ),
           ],
         ),
       ),
