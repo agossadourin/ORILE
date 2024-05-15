@@ -3,6 +3,7 @@ import 'package:etourist/app/modules/principal/home/home.dart';
 import 'package:etourist/app/modules/principal/image_descriptor/image_descriptor_page.dart';
 import 'package:etourist/app/modules/principal/shorts/shorts_page.dart';
 import 'package:etourist/app/modules/principal/tools_box/tools_box_page.dart';
+import 'package:etourist/app/modules/principal/trips/trip_one.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -93,9 +94,7 @@ class Principal extends StatelessWidget {
                         Home(),
                         VideoScreen(),
                         ImageDescriptorPage(),
-                        const Center(
-                          child: Text('roadtrip'),
-                        ),
+                        TripOnePage(),
                         const ToolsBox()
                       ],
                     ),

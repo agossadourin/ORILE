@@ -23,7 +23,7 @@ class Tool extends StatelessWidget {
             Container(
               height: MediaQuery.of(context).size.width * 0.25,
               decoration: BoxDecoration(
-                color: Colors.yellow,
+                color: Colors.white,
                 borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(20),
                     topRight: Radius.circular(20)),

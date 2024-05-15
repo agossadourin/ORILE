@@ -1,7 +1,7 @@
 import 'package:etourist/app/modules/principal/tools_box/learn/learn_page.dart';
 import 'package:etourist/app/modules/principal/tools_box/learn/widgets/tool.dart';
-import 'package:etourist/app/modules/principal/tools_box/translate/language_selection_widget.dart';
-import 'package:etourist/app/modules/principal/tools_box/translate/translate_page.dart';
+import 'package:etourist/app/modules/principal/tools_box/sign_translate/sign_translate_page.dart';
+import 'package:etourist/app/modules/principal/tools_box/translate/audio_play_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
@@ -58,26 +58,31 @@ class ToolsBox extends StatelessWidget {
                     Get.to(() => LearnPage());
                   },
                   child: Tool(
-                    image: 'assets/images/logo.png',
+                    image: 'assets/icons/learn.png',
                     title: 'Apprendre',
                   ),
                 ),
                 Tool(
-                  image: 'assets/images/logo.png',
+                  image: 'assets/icons/titles.png',
                   title: 'Sous-titrage',
                 ),
                 GestureDetector(
                   onTap: () {
-                    Get.to(() => LanguageSelectionWidget());
+                    Get.to(() => AudioPlayPage());
                   },
                   child: Tool(
-                    image: 'assets/images/logo.png',
+                    image: 'assets/icons/translate.png',
                     title: 'Traducteur',
                   ),
                 ),
-                Tool(
-                  image: 'assets/images/logo.png',
-                  title: 'Lang. signes',
+                GestureDetector(
+                  onTap: () {
+                    Get.to(() => SignTranslatePage());
+                  },
+                  child: Tool(
+                    image: 'assets/icons/signs.png',
+                    title: 'trad. Signes',
+                  ),
                 ),
               ],
             ),

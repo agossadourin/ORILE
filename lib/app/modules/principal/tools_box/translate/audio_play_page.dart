@@ -1,3 +1,4 @@
+import 'package:etourist/app/data/models/translated_audio.dart';
 import 'package:etourist/app/data/services/api/api.dart';
 import 'package:etourist/app/widgets/reader_button.dart';
 import 'package:flutter/material.dart';
@@ -22,10 +23,11 @@ class _AudioPlayPageState extends State<AudioPlayPage> {
   bool isRecording = false;
   String audioPath = ' ';
   String wavPath = '';
-  String baseUrl =
-      'http://ec2-3-8-117-75.eu-west-2.compute.amazonaws.com:8000/';
+  bool isLoading = true;
+  String transcript = '';
 
   String dropdownValue = 'Francais - Yoruba';
+  late TranslatedAudio translatedAudio;
 
   @override
   void initState() {
@@ -70,9 +72,18 @@ class _AudioPlayPageState extends State<AudioPlayPage> {
     }
   }
 
-  Future<void> playRecording() async {
+  Future<void> playTranslation() async {
     try {
-      Source urlSource = await UrlSource(audioPath);
+      setState(() {
+        isLoading = true;
+      });
+      TranslatedAudio resp =
+          await api.sendAudioYoToAudioFrRequest(dropdownValue, audioPath);
+      Source urlSource = await UrlSource(resp.link);
+      setState(() {
+        isLoading = false;
+        transcript = resp.text;
+      });
       await audioPlayer.play(urlSource);
     } catch (e) {
       print('Error playing: $e');
@@ -100,7 +111,6 @@ class _AudioPlayPageState extends State<AudioPlayPage> {
           child: Container(
             width: MediaQuery.of(context).size.width * 0.9,
             height: MediaQuery.of(context).size.height * 0.6,
-            color: Colors.amber,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -128,32 +138,15 @@ class _AudioPlayPageState extends State<AudioPlayPage> {
                       Text(isRecording ? 'Stop Recording' : 'Start Recording'),
                 ),
                 SizedBox(height: 20),
+                if (isLoading) CircularProgressIndicator(),
                 if (!isRecording && audioPath != '')
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      SizedBox(height: 20),
-                      ElevatedButton(
-                        onPressed: playRecording,
-                        child: Text('Play Audio'),
-                      ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      ElevatedButton(
-                        onPressed: () {
-                          print("wavPath: $wavPath");
-                          api.sendAudioFrToTextFrRequest(audioPath);
-                        },
-                        child: Text('translate Audio'),
-                      ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      ReaderButton(textToRead: 'text', language: 'francais')
-                    ],
+                  ElevatedButton(
+                    onPressed: playTranslation,
+                    child: Text('Play Translation'),
                   ),
-
+                SizedBox(
+                  height: 20,
+                ),
                 //show the translated text
                 SizedBox(height: 20),
                 Column(
@@ -161,13 +154,16 @@ class _AudioPlayPageState extends State<AudioPlayPage> {
                     Text('Transcription',
                         style: TextStyle(
                             fontSize: 20, fontWeight: FontWeight.bold)),
+                    SizedBox(height: 10),
                     Container(
+                      width: MediaQuery.of(context).size.width * 0.8,
                       height: MediaQuery.of(context).size.height * 0.2,
+                      padding: const EdgeInsets.all(10),
+                      decoration: BoxDecoration(
+                          border: Border.all(color: Colors.black, width: 1)),
                       child: SingleChildScrollView(
-                        scrollDirection: Axis.vertical,
-                        child: Text(
-                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. lorem lipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."),
-                      ),
+                          scrollDirection: Axis.vertical,
+                          child: Text(transcript)),
                     )
                   ],
                 )

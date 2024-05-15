@@ -18,9 +18,9 @@ class Home extends StatelessWidget {
       language: 'Français',
       distance: 2.5,
       images: [
-        'assets/images/image_1.png',
-        'assets/images/place_1.png',
-        'assets/images/image_1.png',
+        'assets/images/amazone.png',
+        'assets/images/amazone.png',
+        'assets/images/amazone.png',
       ],
     ),
     Place(
@@ -30,9 +30,9 @@ class Home extends StatelessWidget {
       language: 'Français',
       distance: 2.5,
       images: [
-        'assets/images/image_1.png',
-        'assets/images/place_1.png',
-        'assets/images/image_1.png',
+        'assets/images/bio.png',
+        'assets/images/bio.png',
+        'assets/images/bio.png',
       ],
     ),
     Place(

@@ -160,6 +160,9 @@ class _ImageDescriptorPageState extends State<ImageDescriptorPage> {
               imageFile = image;
             });
             if (imageFile != null) {
+              setState(() {
+                description = null;
+              });
               var result = await api.sendDescribeMonumentRequest(imageFile!);
               if (result != null) {
                 ImageDescriptorModel desc = result;
