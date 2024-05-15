@@ -1,11 +1,11 @@
-import 'package:etourist/app/modules/principal/tools_box/third_learn_page.dart';
-import 'package:etourist/app/modules/principal/tools_box/widgets/second_learn_item.dart';
+import 'package:etourist/app/modules/principal/tools_box/learn/third_learn_page.dart';
+import 'package:etourist/app/modules/principal/tools_box/learn/widgets/second_learn_item.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
-import '../../../data/controllers/learn_controller.dart';
+import '../../../../data/controllers/learn_controller.dart';
 
 class SecondLearnPage extends StatelessWidget {
   const SecondLearnPage({super.key});

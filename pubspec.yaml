@@ -47,6 +47,13 @@ dependencies:
   flutter_svg: ^2.0.10+1
   video_player: ^2.8.6
   dio: ^5.4.3+1
+  camera: ^0.11.0
+  flutter_sound: ^9.4.6
+  audioplayers: ^6.0.0
+  record: ^4.4.4
+  http: ^1.2.1
+  http_parser: ^4.0.2
+  flutter_ffmpeg: ^0.4.2
 
 
 dev_dependencies:

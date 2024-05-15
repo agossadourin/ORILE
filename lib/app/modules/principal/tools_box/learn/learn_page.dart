@@ -1,6 +1,6 @@
 import 'package:etourist/app/data/controllers/learn_controller.dart';
-import 'package:etourist/app/modules/principal/tools_box/second_learn_page.dart';
-import 'package:etourist/app/modules/principal/tools_box/widgets/learn_item.dart';
+import 'package:etourist/app/modules/principal/tools_box/learn/second_learn_page.dart';
+import 'package:etourist/app/modules/principal/tools_box/learn/widgets/learn_item.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';

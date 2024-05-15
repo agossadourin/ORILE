@@ -1,5 +1,7 @@
-import 'package:etourist/app/modules/principal/tools_box/learn_page.dart';
-import 'package:etourist/app/modules/principal/tools_box/widgets/tool.dart';
+import 'package:etourist/app/modules/principal/tools_box/learn/learn_page.dart';
+import 'package:etourist/app/modules/principal/tools_box/learn/widgets/tool.dart';
+import 'package:etourist/app/modules/principal/tools_box/translate/language_selection_widget.dart';
+import 'package:etourist/app/modules/principal/tools_box/translate/translate_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
@@ -64,9 +66,14 @@ class ToolsBox extends StatelessWidget {
                   image: 'assets/images/logo.png',
                   title: 'Sous-titrage',
                 ),
-                Tool(
-                  image: 'assets/images/logo.png',
-                  title: 'Traducteur',
+                GestureDetector(
+                  onTap: () {
+                    Get.to(() => LanguageSelectionWidget());
+                  },
+                  child: Tool(
+                    image: 'assets/images/logo.png',
+                    title: 'Traducteur',
+                  ),
                 ),
                 Tool(
                   image: 'assets/images/logo.png',

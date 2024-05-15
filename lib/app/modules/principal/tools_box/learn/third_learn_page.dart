@@ -1,8 +1,8 @@
-import 'package:etourist/app/modules/principal/tools_box/widgets/third_learn_item.dart';
+import 'package:etourist/app/modules/principal/tools_box/learn/widgets/third_learn_item.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../data/controllers/learn_controller.dart';
+import '../../../../data/controllers/learn_controller.dart';
 
 class ThirdLearnPage extends StatelessWidget {
   const ThirdLearnPage({super.key});
