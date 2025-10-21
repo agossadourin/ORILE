@@ -1,6 +1,6 @@
 # ORILE
 
-<video src="https://github.com/agossadourin/ORILE/demo.mp4" controls width="600"></video>
+<video src="demo.mp4" controls width="600"></video>
 
 
 Ceci est l'application flutter que nous avons réalisé. Vous pouvez trouver l'apk dans le dossier "build\app\outputs\flutter-apk\app-debug.apk."
